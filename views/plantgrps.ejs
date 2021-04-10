@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+	body{
+		font-family: arial;
+	}
+	.navbar{
+		width: 100%;
+		background: #555;
+		overflow: auto;
+	}
+	.navbar a{
+		float: left;
+		padding: 12px;
+		color: white;
+		text-decoration: none;
+		font-size: 17px;
+	}
+	.navbar a:hover{
+		background: #000;
+	}
+	.active{
+		background: #4CAF50;
+	}
+	@media screen and (max-width: 500px){
+		.navbar a{
+			float: none;
+			display: block;
+		}
+	}
+</style>
+<head>
+	<title>Succulents</title>
+	<link rel="stylesheet" type="text/css" href="/css/sucmain.css">
+	<h1 align="center"><b><%= pname %></b></h1>
+</head>
+<body>
+	<div class="navbar">
+		<a class="active" href="/"><i class="fa fa-fw fa-home"></i>Home</a>
+		<a href="/services"><i class="fa fa-fw fa-search"></i>Service</a>
+		<a href="/contact"><i class="fa fa-fw fa-envelope"></i>Contact Us</a>
+		<% if(isAuthenticated) {%>
+			<a href="/auth/logout"><i class="fa fa-fw fa-user"></i>Logout</a>
+			<a style="float: right;">Logged In as : <%= name %></a>
+			<a class="active" style="float: right;" href="/cart">Cart</a>
+		<%} else {%>
+			<a href="/auth/login"><i class="fa fa-fw fa-user"></i>Login</a>
+		<% } %>
+		<a href="/about"><i class="fa fa-fw fa-us"></i>About Us</a>
+	</div>
+    <div class="grid-container">
+        <% plants.forEach(pl => {%> 
+
+			<% const [i, j, k] = pl.imageLink.split('/'); %>
+			<!-- <p><%= k.split('.')[0] %></p> -->
+			<%var pid = k.split('.')[0] %>
+			<% var link =  '/plant/' + n + '/' + pid%>
+            <div style="border: seashell;"  class="grid-item"> 
+                <a id="box" href="<%= link %>" >
+                    <img src="<%= pl.imageLink %>" alt="">
+                    <p style="margin-left : 30px" id="n" class="aligncenter"><%= pl.name %></p>
+                     <% if(pl.stock > 0) {%>
+                        <a style=" background-color: #4f44ec;
+                        border: none;
+                        margin-left: 40px;
+                        color: white;
+                        padding: 15px 32px;
+                        text-align: center;
+                        text-decoration: none;
+                        display: inline-block;
+                        font-size: 16px;
+                        cursor: pointer;" href="/cart/add/<%=pid%>">Buy</a>
+						<!-- <p><%= pl.imageLink %></p> -->
+
+
+
+                        <a style=" background-color: #1aaf71;
+                        border: none;
+                        /* float: right; */
+                        margin-left: 210px;
+                        color: white;
+                        padding: 15px 32px;
+                        text-align: center;
+                        text-decoration: none;
+                        display: inline-block;
+                        font-size: 16px;
+                        cursor: pointer;"  href="/cart/add/<%=pid%>">Add to Cart</a>
+                    <% } else { %>
+                        <p style="color: red;" class="alignright">Unavailable</p>
+                    <%}%>     
+
+                </a>
+            </div>
+
+            
+        <% }) %>
+      </div>
+
+	<div style="clear: both;"></div>
+</body>
+</html> 

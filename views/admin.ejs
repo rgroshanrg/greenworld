@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+	body{
+		font-family: arial;
+	}
+    .grid-container {
+        display: grid;
+        grid-template-columns: auto;
+        height: 50x;
+        margin: 20px auto 20px auto;
+        border: 4px solid black;
+    }
+    #f {
+        float: left;
+    }
+    p {
+        margin-block-start: 0.1em;
+        margin-block-end: 0.1em;
+    }
+    </style>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders</title>
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+</head>
+<body>
+    <a style=" background-color: #4f44ec;
+                        border: none;
+                        float: right;
+                        margin-left: 40px;
+                        color: white;
+                        padding: 15px 32px;
+                        text-align: center;
+                        text-decoration: none;
+                        display: inline-block;
+                        font-size: 16px;
+                        cursor: pointer;" href="/auth/logout">Logout</a>
+
+    <h1>Orders : </h1>
+    <% checkouts.forEach(ch => { %>
+        <div class="grid-container">
+            <p>Reciever's Name : <%= ch.name %></p>
+            <p>Email : <%= ch.email %></p>
+            <p>Phone : <%= ch.phone %></p>
+            <p>Address : <%= ch.address %></p>
+            <p>Pin : <%= ch.pin %></p>
+            <h2>UPI Reference : <%= ch.upiref %></h2>
+            <p>Order Date : <%= ch.date %></p>
+            <h3>Items Ordered : </h3>
+            <ul>
+                <% ch.plantnames.forEach(pn => { %>
+                    <li><%=pn%></li>
+                <% }) %>
+            </ul>
+        </div>
+    <% }) %>
+
+    
+</body>
+</html>

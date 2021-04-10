@@ -1,0 +1,19 @@
+body{
+	background-image: url("wallper");
+	background: #9FE2BF;
+	font-family: arial;
+	margin: 50px;
+}
+h1{
+	color: #000
+}
+.secondary{
+	color: black;
+	padding: 10px; 
+}
+a{
+	color: red;
+}
+.third{
+	font-size: 30px;
+}

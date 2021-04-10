@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport"
+content="width=device-width, initial-scale=1">
+<style>
+	body{
+		font-family: arial;
+		background-image: url("/images/bodybackgound.jpg");
+		background-repeat: no-repeat;
+		background-size: cover;
+		/* background-image: url("wallper"); */
+		/* background: #9FE2BF; */
+		font-family: arial;
+		margin: 50px;
+	}
+	.navbar{
+		width: 100%;
+		background: #555;
+		overflow: auto;
+	}
+	.navbar a{
+		float: left;
+		padding: 12px;
+		color: white;
+		text-decoration: none;
+		font-size: 17px;
+	}
+	.navbar a:hover{
+		background: #000;
+	}
+	.active{
+		background: #4CAF50;
+		background-image: url("/images/banner.jpg");
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+	@media screen and (max-width: 500px){
+		.navbar a{
+			float: none;
+			display: block;
+		}
+	}
+
+	h1{
+		color: #000
+	}
+	.secondary{
+		color: black;
+		padding: 10px; 
+		align-items: center;
+	}
+	a{
+		color: black;
+	}
+	.third{
+		font-size: 30px;
+	}
+</style>
+<head>
+	<title>GARDEN OF DREAMS</title>
+	<!-- <link rel="stylesheet" type="text/css" href="/css/main.css"> -->
+	<h1 align="center">GARDEN OF DREAMS</h1>
+	<h2 align="center" style="font-size: 15px"><em>LANDSCAPE AND HOME DECOR</em></h2>
+</head>
+<body background="https://images.app.goo.gl/Dq4JSWK9o3p33DQe6">
+	<div class="navbar">
+		<a class="active" href="/"><i class="fa fa-fw fa-home"></i>Home</a>
+		<a href="/services"><i class="fa fa-fw fa-service"></i>Service</a>
+		<a href="/contact"><i class="fa fa-fw fa-contact"></i>Contact Us</a>
+		<% if(isAuthenticated) {%>
+			<a href="/auth/logout"><i class="fa fa-fw fa-user"></i>Logout</a>
+			<a style="float: right;">Logged In as : <%= name %></a>
+			<a class="active" style="float: right;" href="/cart">Cart</a>
+		<%} else {%>
+			<a href="/auth/login"><i class="fa fa-fw fa-user"></i>Login</a>
+		<% } %>
+		<a href="/about"><i class="fa fa-fw fa-us"></i>About Us</a>
+		
+	</div>
+	<p align="center" style="font-size: 40px"><b>Our Collection</b></p>
+	<p align="center" class="third"><b>Plants</b></p>
+	<!-- <p align="center" class="secondary"><a href="/plant/succulents">Succulents</a></p>
+	<p align="center" class="secondary"><a href="/plant/orchids">Orchids</a></p>
+	<p align="center" class="secondary"><a href="/plant/vegetable">Vegetable Garden</a></p>
+	<p align="center" class="secondary"><a href="/plant/flowring">Flowering Plants</a></p> -->
+
+		<p align="center"><a align="center" class="secondary" style=" background-color: #4CAF50;
+		border: none;
+		margin-left: 40px;
+		color: white;
+		padding: 15px 32px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 25px;
+		cursor: pointer;" href="/plant/succulents">Succulents</a></p><br>
+		<p align="center"><a align="center" class="secondary" style=" background-color: #4CAF50;
+		border: none;
+		margin-left: 40px;
+		color: white;
+		padding: 15px 32px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 25px;
+		cursor: pointer;" href="/plant/orchids">Orchids</a></p><br>
+		<p align="center"><a align="center" class="secondary" style=" background-color: #4CAF50;
+		border: none;
+		margin-left: 40px;
+		color: white;
+		padding: 15px 32px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 25px;
+		cursor: pointer;" href="/plant/vegetable">Vegetable Garden</a></p><br>
+		<p align="center"><a align="center" class="secondary" style=" background-color: #4CAF50;
+		border: none;
+		margin-left: 40px;
+		color: white;
+		padding: 15px 32px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 25px;
+		cursor: pointer;" href="/plant/flowring">Flowering Plants</a></p><br>
+
+	<p style="font-size: 20px"><b>Quick Links</b></p>
+		<ul style="list-style-type: none;">
+			<li><a href="/faq">FAQ</a></li>
+			<li><a href="/tac">Terms & Conditions</a></li>
+			<li><a href="/cancel-return">Cancellation & Return Policy</a></li>
+		</ul>
+	<p style="color: white; font-size: 20px"><b>Contact for Horticulturist</b></p>
+	<ul style="list-style-type: none;">
+		<li style="color: white;">Phone no. : 9972<span style="color: black;">445</span>588</li>
+	</ul>
+</body>
+</html>

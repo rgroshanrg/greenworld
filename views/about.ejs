@@ -1,0 +1,66 @@
+<!DOCTYPE html> 
+<html>
+<meta name="viewport"
+content="width=device-width, initial-scale=1">
+<style>
+	body{
+		font-family: arial;
+	}
+	.navbar{
+		width: 100%;
+		background: #555;
+		overflow: auto;
+	}
+	.navbar a{
+		float: left;
+		padding: 12px;
+		color: white;
+		text-decoration: none;
+		font-size: 17px;
+	}
+	.navbar a:hover{
+		background: #000;
+	}
+	.active{
+		background: #4CAF50;
+	}
+	@media screen and (max-width: 500px){
+		.navbar a{
+			float: none;
+			display: block;
+		}
+	}
+</style>
+<head>
+	<title>About Us</title>
+	<link rel="stylesheet" type="text/css" href="/css/main.css">
+	<h1 align="center">About Us</h1>
+</head>
+<body>
+	<div class="navbar">
+		<a  href="/"><i class="fa fa-fw fa-home"></i>Home</a>
+		<a href="/services"><i class="fa fa-fw fa-search"></i>Service</a>
+		<a href="/contact"><i class="fa fa-fw fa-envelope"></i>Contact Us</a>
+		<% if(isAuthenticated) {%>
+			<a href="/auth/logout"><i class="fa fa-fw fa-user"></i>Logout</a>
+			<a style="float: right;">Logged In as : <%= name %></a>
+			<a class="active" style="float: right;" href="/cart">Cart</a>
+		<%} else {%>
+			<a href="/auth/login"><i class="fa fa-fw fa-user"></i>Login</a>
+		<% } %>
+		<a class="active" href="/about"><i class="fa fa-fw fa-us"></i>About Us</a>
+	</div>
+	<p class="secondary">Garden design is a platform for Urban India to stay close to nature. Every city turning into a concrete jungle now, Graden World offers unique solutions for every person with beatiful plants, pots, decorative kincks-knacks to create your green patch. We strive to be the perfect Urban solution with our unique products delveloped keeping you in mind.<br><br>
+	We wanted urbanites to rediscover nature and use it as a means for healthier living - cleaner air, less stress, organic food and much more fulfilling life. We are doing this making available a wide range of gradening products, know-how and services at your doorstep. Growing plants need not be difficult, and we are always there to help you select and nurture your greens.<br><br>
+	As a team, we put great value on integrity, prompt customer services, quality and a shared desire to help people 'go green'<br><br>
+	<b>Wishing you a greener home!</b><br><br>
+	Naturally yours,<br><br>
+	Team Green World</p>
+	<p style="font-size: 20px"><b>Quicks Links</b></p>
+	<ul style="list-style-type: none;">
+			<li><a href="/faq">FAQ</a></li>
+			<li><a href="/tac">Terms & Conditions</a></li>
+			<li><a href="/cancel-return">Cancellation & Return Policy</a></li>
+		</ul>
+</body>
+</html> 

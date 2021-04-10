@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport"
+content="width=device-width, initial-scale=1">
+<style>
+	body{
+		font-family: arial;
+	}
+	.navbar{
+		width: 100%;
+		background: #555;
+		overflow: auto;
+	}
+	.navbar a{
+		float: left;
+		padding: 12px;
+		color: white;
+		text-decoration: none;
+		font-size: 17px;
+	}
+	.navbar a:hover{
+		background: #000;
+	}
+	.active{
+		background: #4CAF50;
+	}
+	@media screen and (max-width: 500px){
+		.navbar a{
+			float: none;
+			display: block;
+		}
+	}
+</style>
+<head>
+	<title>Services</title>
+	<link rel="stylesheet" type="text/css" href="/css/main.css">
+	<h1 align="center">Services</h1>
+</head>
+<body>
+	<div class="navbar">
+		<a  href="/"><i class="fa fa-fw fa-home"></i>Home</a>
+		<a class="active" href="/services"><i class="fa fa-fw fa-search"></i>Service</a>
+		<a href="/contact"><i class="fa fa-fw fa-envelope"></i>Contact Us</a>
+		<% if(isAuthenticated) {%>
+			<a href="/auth/logout"><i class="fa fa-fw fa-user"></i>Logout</a>
+			<a style="float: right;">Logged In as : <%= name %></a>
+			<a class="active" style="float: right;" href="/cart">Cart</a>
+		<%} else {%>
+			<a href="/auth/login"><i class="fa fa-fw fa-user"></i>Login</a>
+		<% } %>
+		<a href="/about"><i class="fa fa-fw fa-us"></i>About Us</a>
+	</div>
+	<p style="font-size: 20px"><b>Quicks Links</b></p>
+		<ul style="list-style-type: none;">
+			<li><a href="/faq">FAQ</a></li>
+			<li><a href="/tac">Terms & Conditions</a></li>
+ 			<li><a href="/cancel-return">Cancellation & Return Policy</a></li>
+		</ul>
+		<p style=" font-size: 20px"><b>Contact for Horticulturist</b></p>
+	<ul style="list-style-type: none;">
+		<li >Phone no. : 9972445588</li>
+	</ul>
+</body>
+</html> 
