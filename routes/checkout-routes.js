@@ -1,7 +1,9 @@
 const router = require('express').Router();
+const nodemailer = require('nodemailer');
 const Plant = require('../utils/models/plant-model');
 const User = require('../utils/models/user-model');
 const Checkout = require('../utils/models/checkout-model');
+const keys = require('../config/keys');
 const isLoggedIn = require('../utils/middlewares/isLoggedIn');
 
 router.get('/', isLoggedIn, (req, res) => {
@@ -54,6 +56,36 @@ router.post('/', isLoggedIn, (req, res) => {
                     check.items.push(plant._id);
                     check.plantnames.push(plant.name);
                     plant.save();
+                }).then(p =>{
+
+
+                    const transporter = nodemailer.createTransport({
+                        service: 'Gmail',
+                        auth: {
+                            user: keys.GMAIL.EMAIL_ID,
+                            pass: keys.GMAIL.EMAIL_PASS,
+                        },
+                    })
+                
+                    // send mail with defined transport object
+                    let info = transporter.sendMail({
+                        from: '"Green World" <greenworlds2021@gmail.com>',  // sender address
+                        to: user.email, // list of receivers seperated by comma
+                        subject: "Thanks for Shopping With Us [Green World]", // Subject line
+                        text: "Thank you for shopping with Green World. Your Package will be delivered within 1 Week.", // plain text body
+                    }, (error, info) => {
+                
+                        if (error) {
+                            console.log(error)
+                            return;
+                        }
+                        console.log('Message sent successfully!');
+                        console.log(info);
+                        transporter.close();
+                        // res.send('Click the emailed Link');
+                    });
+
+
                 })
             });
         });
