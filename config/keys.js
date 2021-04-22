@@ -14,5 +14,5 @@ module.exports = {
     SESSION : {
         COOKIE_KEY : 'tom_jerry!23yodhatherealwarriors@gmail.comtom_jerry!23'
     },
-    baseUrl :  'http://localhost:3000/'
+    baseUrl :  'https://green-world-plant.herokuapp.com/'
 } 
